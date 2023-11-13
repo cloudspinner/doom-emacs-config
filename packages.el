@@ -49,4 +49,9 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-(package! evil-paredit)
+(package! evil-paredit
+  :recipe (:host github
+           :repo "emiflake/evil-paredit"
+           :branch "fix-called-interactively"))
+
+(package! multi-vterm)
