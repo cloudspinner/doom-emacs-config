@@ -81,7 +81,8 @@
 (add-hook 'clojure-mode-hook #'evil-paredit-mode)
 (after! cider
   (setq cider-clojure-cli-aliases ":dev"))
-<<<<<<< Updated upstream
+(after! clojure
+  (setq inferior-lisp-program (executable-find "clojure")))
 
 (use-package! multi-vterm
   :config
@@ -118,7 +119,3 @@
   (evil-define-key 'normal vterm-mode-map (kbd "o")        #'evil-insert-resume)
   (evil-define-key 'normal vterm-mode-map (kbd "<return>") #'evil-insert-resume)
   )
-=======
-(after! clojure
-  (setq inferior-lisp-program (executable-find "clojure")))
->>>>>>> Stashed changes
