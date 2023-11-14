@@ -49,9 +49,15 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
+<<<<<<< Updated upstream
 (package! evil-paredit
   :recipe (:host github
            :repo "emiflake/evil-paredit"
            :branch "fix-called-interactively"))
 
 (package! multi-vterm)
+=======
+(package! evil-paredit)
+(package! cider :disable t)
+(package! inf-clojure)
+>>>>>>> Stashed changes
