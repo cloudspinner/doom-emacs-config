@@ -86,10 +86,6 @@
 
 (use-package! multi-vterm
   :config
-  (add-hook 'vterm-mode-hook
-            (lambda ()
-              (setq-local evil-insert-state-cursor 'box)
-              (evil-insert-state)))
   (define-key vterm-mode-map [return]                      #'vterm-send-return)
 
   (setq vterm-keymap-exceptions nil)
