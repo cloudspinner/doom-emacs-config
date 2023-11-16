@@ -53,7 +53,3 @@
   :recipe (:host github
            :repo "emiflake/evil-paredit"
            :branch "fix-called-interactively"))
-
-(package! multi-vterm)
-(package! cider :disable t)
-(package! inf-clojure)

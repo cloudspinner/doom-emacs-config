@@ -75,17 +75,15 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)                                                                                                              
-(add-hook 'emacs-lisp-mode-hook #'evil-paredit-mode)                                                                                                                
-(add-hook 'clojure-mode-hook #'enable-paredit-mode)                                                                                                                 
-(add-hook 'clojure-mode-hook #'evil-paredit-mode)
+(after! emacs-lisp
+  (add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
+  (add-hook 'emacs-lisp-mode-hook #'evil-paredit-mode))
+(after! clojure--align-separator-newline-regexp
+  (add-hook 'clojure-mode-hook #'enable-paredit-mode)
+  (add-hook 'clojure-mode-hook #'evil-paredit-mode))
 (after! cider
   (setq cider-clojure-cli-aliases ":dev"))
-(after! clojure
-  (setq inferior-lisp-program (executable-find "clojure")))
-
-(use-package! multi-vterm
-  :config
+(after! vterm
   (define-key vterm-mode-map [return]                      #'vterm-send-return)
 
   (setq vterm-keymap-exceptions nil)
@@ -113,5 +111,4 @@
   (evil-define-key 'normal vterm-mode-map (kbd ",p")       #'multi-vterm-prev)
   (evil-define-key 'normal vterm-mode-map (kbd "i")        #'evil-insert-resume)
   (evil-define-key 'normal vterm-mode-map (kbd "o")        #'evil-insert-resume)
-  (evil-define-key 'normal vterm-mode-map (kbd "<return>") #'evil-insert-resume)
-  )
+  (evil-define-key 'normal vterm-mode-map (kbd "<return>") #'evil-insert-resume))
