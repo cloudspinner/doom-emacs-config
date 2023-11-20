@@ -78,11 +78,14 @@
 (after! emacs-lisp
   (add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
   (add-hook 'emacs-lisp-mode-hook #'evil-paredit-mode))
-(after! clojure--align-separator-newline-regexp
+
+(after! clojure
   (add-hook 'clojure-mode-hook #'enable-paredit-mode)
   (add-hook 'clojure-mode-hook #'evil-paredit-mode))
+
 (after! cider
   (setq cider-clojure-cli-aliases ":dev"))
+
 (after! vterm
   (define-key vterm-mode-map [return]                      #'vterm-send-return)
 
