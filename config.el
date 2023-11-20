@@ -75,13 +75,11 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(after! emacs-lisp
-  (add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
-  (add-hook 'emacs-lisp-mode-hook #'evil-paredit-mode))
+(add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
+(add-hook 'emacs-lisp-mode-hook #'evil-paredit-mode)
 
-(after! clojure
-  (add-hook 'clojure-mode-hook #'enable-paredit-mode)
-  (add-hook 'clojure-mode-hook #'evil-paredit-mode))
+(add-hook 'clojure-mode-hook #'enable-paredit-mode)
+(add-hook 'clojure-mode-hook #'evil-paredit-mode)
 
 (after! cider
   (setq cider-clojure-cli-aliases ":dev"))
