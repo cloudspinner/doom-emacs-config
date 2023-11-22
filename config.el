@@ -119,3 +119,7 @@
 (map! :map dired-mode-map
       :n "RET" #'dired-find-alternate-file
       :ng "^" (λ! (find-alternate-file "..")))
+
+;; Use deps.edn files for project recognition:
+(after! projectile
+  (add-to-list 'projectile-project-root-files-bottom-up "deps.edn"))
