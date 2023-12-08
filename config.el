@@ -81,8 +81,15 @@
 (add-hook 'clojure-mode-hook #'enable-paredit-mode)
 (add-hook 'clojure-mode-hook #'evil-paredit-mode)
 
+(setq clojure-toplevel-inside-comment-form t)
+
 (after! cider
-  (setq cider-clojure-cli-aliases ":dev"))
+  (setq cider-clojure-cli-aliases ":dev")
+  ;; fix cider-eval-sexp-at-point (see https://github.com/doomemacs/doomemacs/issues/3009):
+  ;; (advice-remove 'cider-eval-last-sexp 'evil-collection-cider-last-sexp)
+  ;; (advice-remove 'cider-eval-last-sexp-and-replace 'evil-collection-cider-last-sexp)
+  ;; (advice-remove 'cider-eval-last-sexp-to-repl 'evil-collection-cider-last-sexp)
+  )
 
 (after! vterm
   (define-key vterm-mode-map [return]                      #'vterm-send-return)
