@@ -83,6 +83,9 @@
 
 (setq clojure-toplevel-inside-comment-form t)
 
+(package! cider :disable t)
+(package! inf-clojure)
+
 ;; (after! cider
 ;;   (setq cider-clojure-cli-aliases ":dev")
 ;;   ;; fix cider-eval-sexp-at-point (see https://github.com/doomemacs/doomemacs/issues/3009):

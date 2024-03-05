@@ -54,6 +54,8 @@
            :repo "emiflake/evil-paredit"
            :branch "fix-called-interactively"))
 
+(unpin! (:lang clojure))
+
 ;; Use version of doom-modeline without Nerd Fonts
 ;; (see https://github.com/doomemacs/doomemacs/issues/7368#issuecomment-1713109316)
 ;; The Nerd fonts used by doom-modeline breaks mosh under Blink shell
