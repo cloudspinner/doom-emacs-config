@@ -130,18 +130,5 @@
   :config
   (claude-code-ide-emacs-tools-setup)) ; Optionally enable Emacs MCP tools
 
-;; Ghostty Cmd+C → copy region to system clipboard (via clipetty/OSC 52).
-;; Ghostty sends CSI 99;9u for Cmd+C. kkp decodes it as s-c (super-c).
-;; Blink Shell intercepts Cmd+C at the iOS layer so this never fires on iPad.
-(use-package! kkp
-  :config
-  (global-kkp-mode +1)
-  (keymap-global-set "s-c"
-                     (lambda () (interactive)
-                       (if (use-region-p)
-                           (progn
-                             (kill-ring-save (region-beginning) (region-end))
-                             (when (evil-visual-state-p)
-                               (evil-exit-visual-state))
-                             (message "Copied to clipboard"))
-                         (message "No selection to copy")))))
+;; Mouse selection → kill ring → system clipboard (via clipetty/OSC 52).
+(setq mouse-drag-copy-region t)
