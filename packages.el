@@ -59,4 +59,10 @@
 ;; Use version of doom-modeline without Nerd Fonts
 ;; (see https://github.com/doomemacs/doomemacs/issues/7368#issuecomment-1713109316)
 ;; The Nerd fonts used by doom-modeline breaks mosh under Blink shell
-(package! doom-modeline :pin "918730eff72e155cfb31b012493a7f425bc48ff8")
+;; (package! doom-modeline :pin "918730eff72e155cfb31b012493a7f425bc48ff8")
+(unpin! doom-modeline)
+
+(package! claude-code-ide
+  :recipe (:host github :repo "manzaltu/claude-code-ide.el"))
+
+(package! kkp)
